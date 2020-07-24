@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Factura On-Line</title>
+  <link rel="stylesheet" type="text/css" href="./stylle.css"/>
+  <script type="text/javascript" src="./função.js"></script>
+  <meta charset="utf-8">
+  <meta name="description" content="Pagina Financiera"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+
+<body>
+
+<header class="cajacontenedoraTitulo Tealcolor" id="inicio">
+  <h1>Sistema de Facturación On-line</h1>
+</header><br />
+
+<center>
+
+  <div>
+    <form id="formP" method="post">
+      <label for="codigo">Código</label>
+      <input type="text" id="codigo" value="" size="" placeholder="Código de producto">
+
+      <label for="cantidad">Cantidad</label>
+      <input type="text" id="cantidad" value="" size="" placeholder="Cantidad">
+    
+      <input type="button" value="Enviar" onclick="loadDOC()">
+    </form>
+  </div><br />
+
+  <div>
+    <table id="T1" cellspacing="0">
+      <tr>
+        <th>Código</th>
+        <th>Descripción</th>    
+        <th>Cantidad</th>
+        <th>Precio Unitario</th>
+        <th>Precio Total</th>
+      </tr>
+      <tr>
+        <td><p id="cod"></p></td>
+        <td><p id="descrip"></p></td>    
+        <td><p id="cant"></p></td>
+        <td><p id="precioUnitario"></p></td>
+        <td><p id="precioT"></p></td>
+      </tr>
+    </table>
+  </div><br />
+
+  <div>
+    <table cellspacing="0">
+      <tr>
+        <th>SubTotal</th>
+        <td id="subtotal">0</td>
+      </tr>
+      <tr>
+        <th>IVA (12%)</th>
+        <td id="iva">0</td>
+      </tr>
+      <tr>
+        <th>Total</th>
+        <td id="total">0</td>
+      </tr>
+    </table>
+  </div><br />
+
+  <button class="button" style="vertical-align:middle" onclick="javascript:window.open('almacen.xml');"><span>Ayuda </span></button>
+  <button class="button" style="vertical-align:middle" id="myBtn"><span>Limpiar </span></button>
+  <button class="button" style="vertical-align:middle" onclick="openNav()"><span>Contact </span></button>
+
+</center>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-body">
+      <center><img src="./Danger.png" alt="Alert" width="150" height="150"></center>
+      <h2>¿Desea continuar?</h2>
+      <p>
+        La acción que está a punto de realizar, remueve toda información que usted haya suministrado.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <center>
+        <button id="myBtn2" type="button"><spann>Eliminar</spann></button>
+        <button id="myBtn3" type="button"><spann>Cancelar</spann></button>
+      </center>
+    </div>
+  </div>
+</div>
+
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <div class="overlay-content">
+    <center>
+      <div class="card">
+        <img src="./yessica.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+          <h4><b>Yessica Ríos</b></h4> 
+          <p>Estudiante de Ciencias de la Computación en la Universidad de Carabobo.</p>
+          <p><address>email to contact: yskrios@gmail.com</address></p>
+        </div>
+      </div><br />
+
+      <div class="card">
+        <img src="./jesus.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+          <h4><b>Jesús Romero</b></h4> 
+          <p>Estudiante de Ciencias de la Computación en la Universidad de Carabobo.</p>
+          <p><address>email to contact: gisuss8520@gmail.com</address></p>
+        </div>
+      </div><br /><br /><br /><br /><br />
+    </center>
+  </div>
+</div>
+
+<footer class="cajacontenedoraPie Tealcolor" id="fin">
+    <br /> <address>Desenvolvido por:</address>
+    <address><b>Elivelton Passos  </b>   </address>
+    <address><b>  </b>   </address><br />
+</footer>
+
+<script>
+  // Obtener el Modal
+  var modal = document.getElementById('myModal');
+
+  // Obtener el boton que activa el Modal
+  var btn = document.getElementById("myBtn");
+
+  // Obtener el Boton de Confirmacion
+  var btn2 = document.getElementById("myBtn2");
+
+  // Obtener el Boton de Confirmacion
+  var btn3 = document.getElementById("myBtn3");
+
+  // Cuando se hace click en el boton, se activa el Modal 
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  // Cuando se hace click sobre el boton de Confirmacion
+  btn2.onclick = function() {
+    limpiar();
+    modal.style.display = "none";
+  }
+
+  // Cuando se hace click sobre el boton de Confirmacion
+  btn3.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Cuando se hace click en cualquier lado fuera de la pantalla, se cierra el Modal
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>
